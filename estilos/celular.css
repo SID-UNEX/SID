@@ -2,89 +2,67 @@
 
 /* CELULAR */
 
+/* Adiciona box-sizing para evitar problemas de largura */
 * {
     font-family: Arial, Helvetica, sans-serif;
-
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Correção importante */
 }
 
-body, html {
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Remove o rolamento horizontal */
+}
+
+body {
     background-color: rgb(245, 245, 245);
 }
 
-header {
-    background-color: #092E8D;
+.navbar {
+    background-color: #082879 !important;
 }
 
-div#logo {
-    text-align: center;
-}
-
-img#logo {
-    height: 100px;
-    width: 100px;
-}
-
-header > h1 {
-    color: white;
-    text-align: center;
-    font-size: 2em;
-}
-
-i#burguer {
-    background-color: #061f5e;
-    color: white;
-    display: block;
-    text-align: center;
-    padding: 10px;
-}
-
-i#burguer:hover {
-    background-color: #0e3eb8;
-    color: rgb(255, 255, 255);
-}
-
-menu {
-    display: none;
-}
-
-menu > ul {
-    list-style-type: none;
-}
-
-menu > ul > li > a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    text-align: center;
-    background-color: #082879;
-    color: white;
-    border-top: 2px solid #031b58;
-}
-
-menu > ul > li > a:hover {
-    background-color: #0e3eb8;
+#logo {
+    padding-left: 5px;
 }
 
 main {
     background-color: rgb(241, 241, 241);
     color: black;
-    width: 100vw;
+    width: 100%; /* Correção feita aqui */
+    flex: 1;
+}
+
+.topo {
+    background-color: #092E8D;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     display: flex;
-    flex-direction: column-reverse; /* Alinha os itens em coluna */
-    align-items: center; /* Centraliza os itens horizontalmente */
+    flex-direction: column-reverse;
+    align-items: center;
 }
 
 .texto {
-    margin-bottom: 0px; /* Espaço entre o texto e a imagem */
+    margin-bottom: 0px;
 }
 
 .imagem {
-    max-width: 100%; /* Ajusta a largura da imagem conforme necessário */
+    max-width: 100%;
+    height: auto; /* Garante que a imagem seja responsiva */
 }
 
 main > figure {
@@ -95,17 +73,18 @@ a {
     text-decoration: none;
 }
 
-div#informacao {
+.informacao {
     background-color: rgb(255, 255, 255);
     margin: 40px auto;
     text-align: center;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.178);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.178);
+    padding: 20px;
+    max-width: 90%; /* Garante que a largura não ultrapasse a tela */
 }
 
 main > div > figure > a > img {
-    width: 100vw;
+    width: 100%;
     margin-top: 9px;
-    margin-bottom: 40px;
     margin-bottom: 20px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.466);
     text-align: left;
@@ -113,7 +92,7 @@ main > div > figure > a > img {
 }
 
 main > div > figure > a > img:hover {
-    scale: 1.02;
+    transform: scale(1.02); /* Correção: `scale` para `transform` */
 }
 
 main > div > figure > a > figcaption {
@@ -122,6 +101,7 @@ main > div > figure > a > figcaption {
     color: #031b58;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.151);
     font-size: 2em;
+    text-align: center; /* Garante que o texto fique centralizado */
 }
 
 main > figure > a > figcaption:hover {
@@ -134,12 +114,13 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .icons {
     display: flex;
-    gap: 10px; /* Espaço entre os ícones */
-    margin-bottom: 10px; /* Espaço abaixo dos ícones */
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 footer > p#des > a {
